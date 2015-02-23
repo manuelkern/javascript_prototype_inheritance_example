@@ -11,7 +11,15 @@
         likesToParty: null,
 
         dailyActivities: function(){
-          return "eats shits sleeps";
+          var str = "";
+          str += "eats";
+          if(this.shitsAlot){
+            str += " shits shits shits";
+          } else {
+            str += " shits";
+          }
+          str += " sleeps";
+          return str;
         },
 
         fullName: function(){
@@ -22,6 +30,7 @@
       function OldPerson(firstName, lastName){
         Person.apply(this, arguments);
         this.likesToParty = false;
+        this.shitsAlot = true;
       };
 
       OldPerson.prototype = Person.prototype;
@@ -29,11 +38,13 @@
       function YoungPerson(firstName, lastName){
         Person.apply(this, arguments);
         this.likesToParty = true;
+        this.shitsAlot = false;
       };
 
       YoungPerson.prototype = Person.prototype;
 
-      p = new Person("john", "doe");
+      p = new Person("john", "doe"); //dont use the base class
+
       o = new OldPerson("mr.", "doe");
       y = new YoungPerson("johnny", "d");
     </script>
