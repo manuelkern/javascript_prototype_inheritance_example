@@ -1,25 +1,32 @@
 <html>
   <head>
     <script type="text/javascript">
-      function Foo(arg){
-        this.foo = "foo";
-        this.bar = "bar";
-      };
+      function Person(arg) {};
 
-      Foo.prototype = {
-        foo: null,
-        bar: null,
-        foobar: function(){
-          console.log(this.foo + this.bar);
+      Person.prototype = {
+        needsToEat: true,
+        likesToParty: null,
+
+        dailyActivities: function(){
+          return "eats shits sleeps";
         }
-      }
-
-      function Bar(arg){
-        this.foo = "pants";
-        this.bar = "baz";
       };
 
-      Bar.prototype = Foo.prototype;
+      function OldPerson(arg){
+        this.likesToParty = false;
+      };
+
+      OldPerson.prototype = Person.prototype;
+
+      function YoungPerson(arg){
+        this.likesToParty = true;
+      };
+
+      YoungPerson.prototype = Person.prototype;
+
+      p = new Person();
+      o = new OldPerson();
+      y = new YoungPerson();
     </script>
   </head>
   <body>
