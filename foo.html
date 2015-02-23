@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <script type="text/javascript">
+      function Foo(arg){
+        this.foo = "foo";
+        this.bar = "bar";
+      };
+
+      Foo.prototype = {
+        foo: null,
+        bar: null,
+        foobar: function(){
+          console.log(this.foo + this.bar);
+        }
+      }
+
+      function Bar(arg){
+        this.foo = "pants";
+        this.bar = "baz";
+      };
+
+      Bar.prototype = Foo.prototype;
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
