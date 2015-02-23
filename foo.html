@@ -1,7 +1,10 @@
 <html>
   <head>
     <script type="text/javascript">
-      function Person(arg) {};
+      function Person(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+      };
 
       Person.prototype = {
         needsToEat: true,
@@ -9,24 +12,30 @@
 
         dailyActivities: function(){
           return "eats shits sleeps";
+        },
+
+        fullName: function(){
+          return this.firstName + " " + this.lastName;
         }
       };
 
-      function OldPerson(arg){
+      function OldPerson(firstName, lastName){
+        Person.apply(this, arguments);
         this.likesToParty = false;
       };
 
       OldPerson.prototype = Person.prototype;
 
-      function YoungPerson(arg){
+      function YoungPerson(firstName, lastName){
+        Person.apply(this, arguments);
         this.likesToParty = true;
       };
 
       YoungPerson.prototype = Person.prototype;
 
-      p = new Person();
-      o = new OldPerson();
-      y = new YoungPerson();
+      p = new Person("john", "doe");
+      o = new OldPerson("mr.", "doe");
+      y = new YoungPerson("johnny", "d");
     </script>
   </head>
   <body>
